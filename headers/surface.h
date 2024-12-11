@@ -35,8 +35,8 @@ struct Surface {
     void subdivideNode(uint32_t nodeIdx);
     void intersectBVH(uint32_t nodeIdx, Ray& ray, Interaction& si);
 
-    Interaction rayPlaneIntersect(Ray ray, Vector3f p, Vector3f n);
-    Interaction rayTriangleIntersect(Ray ray, Vector3f v1, Vector3f v2, Vector3f v3, Vector3f n);
+    static Interaction rayPlaneIntersect(Ray ray, Vector3f p, Vector3f n);
+    static Interaction rayTriangleIntersect(Ray ray, Vector3f v1, Vector3f v2, Vector3f v3, Vector3f n);
     Interaction rayIntersect(Ray& ray);
 };
 

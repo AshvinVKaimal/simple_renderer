@@ -220,7 +220,7 @@ Interaction Surface::rayPlaneIntersect(Ray ray, Vector3f p, Vector3f n)
 
 Interaction Surface::rayTriangleIntersect(Ray ray, Vector3f v1, Vector3f v2, Vector3f v3, Vector3f n)
 {
-    Interaction si = this->rayPlaneIntersect(ray, v1, n);
+    Interaction si = Surface::rayPlaneIntersect(ray, v1, n);
 
     if (si.didIntersect) {
         bool edge1 = false, edge2 = false, edge3 = false;
@@ -385,12 +385,13 @@ void Surface::intersectBVH(uint32_t nodeIdx, Ray& ray, Interaction& si)
                 si.uv = uv;
 
                 si.bsdf = &this->bsdf;
-
-                // TODO: Obtain the ONB and store in interaction here
+                
+                si.c = normal;
+                si.b = Normalize(Cross(si.c, -ray.d));
+                si.a = Normalize(Cross(si.b, si.c));
 
                 // Set the view direction in local coordinates
-                // TODO: Uncomment this after implementing ONB
-                // si.wi = si.toLocal(-ray.d);
+                si.wi = si.toLocal(-ray.d);
             }
         }
     }

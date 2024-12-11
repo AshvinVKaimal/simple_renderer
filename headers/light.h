@@ -1,6 +1,7 @@
 #pragma once
 
 #include "common.h"
+#include "surface.h"
 
 enum LightType {
     POINT_LIGHT=0,

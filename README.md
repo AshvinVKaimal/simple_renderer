@@ -1,29 +1,42 @@
-# Introduction to Computer Graphics (CS7.302, IIIT Hyderabad)
-This is the base code that is to be used for all assignments in the above course. <br>
-Some sample scenes are given in the <a href="https://github.com/cs7-302-graphics/scenes">cs7-302-graphics/scenes</a> repo.
+# Simple Physically Based Renderer using Ray Tracing
 
-Instructions to clone, compile and run are given below.
+This is a simple physically based renderer that uses ray tracing algorithms to render 3D scenes with realistic lighting and shading. 
 
-## Cloning this repo
-```git clone --recursive https://github.com/cs7-302-graphics/simple_renderer```
-Do not forget the `--recursive` flag!
+## Dependencies
+
+- CMake
 
 ## Compiling
+
+For Windows:
+
 ```
 mkdir build
 cd build
 cmake ..
 ```
 
-If you are on windows, this should create a Visual Studio solution ```cs7302.sln``` in the build folder. Open it and compile. \
-If you are on linux/mac, you will need to additionally run the following to compile:
+For Linux / MacOS:
 
 ```
+mkdir build
+cd build
+cmake ..
 make -j8
 ```
 
 ## Running
-The path to scene config (typically named `config.json`) and the path of the output image are passed using command line arguments as follows:
+
+The path to scene config (required to be a JSON file) and the path of the output image are passed using command line arguments as follows:
 ```bash
-./build/render <scene_path> <out_path>
+./build/render <scene_path> <out_path> <num_samples> <sampling_strategy>
 ```
+
+Sample scene configurations can be found in the `scenes` directory, with scenes having different lighting configurations to test the renderer. Custom scenes can also be created using the provided simple renderer exporter for Blender. Instructions for using the Blender exporter can be found in the `scenes` directory.
+
+The number of samples can be any positive integer - the higher the number, the less noisy the image but the longer it takes to render. A good starting point is 100 samples.
+
+The sampling strategy can be one of the following:
+- 'uniform': Uniform Hemisphere Sampling (faster but more noisy images, ideal for basic ray distribution / debugging)
+- 'cosine': Cosine Weighted Sampling (slightly slower but more accurate lighting, ideal for basic lighting and diffuse surfaces)
+- 'importance': Importance Light Sampling (slowest but most accurate, ideal for complex lighting)
