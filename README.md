@@ -38,5 +38,5 @@ The number of samples can be any positive integer - the higher the number, the l
 
 The sampling strategy can be one of the following:
 - 'uniform': Uniform Hemisphere Sampling (faster but more noisy images, ideal for basic ray distribution / debugging)
-- 'cosine': Cosine Weighted Sampling (slightly slower but more accurate lighting, ideal for basic lighting and diffuse surfaces)
+- 'cosine': Cosine Weighted Sampling (slightly slower but more accurate lighting, ideal for simple lighting and diffuse surfaces)
 - 'importance': Importance Light Sampling (slowest but most accurate, ideal for complex lighting)
