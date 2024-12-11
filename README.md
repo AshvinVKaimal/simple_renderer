@@ -1,6 +1,6 @@
 # Simple Physically Based Renderer using Ray Tracing
 
-This is a simple physically based renderer that uses ray tracing algorithms to render 3D scenes with realistic lighting and shading. Made for the CS7-302 Computer Graphics course at IIIT Hyderabad.
+This is a simple physically based renderer that uses ray tracing algorithms to render 3D scenes with realistic lighting and shading. The renderer supports basic ray tracing features such as ray-sphere intersection, ray-plane intersection, and ray-triangle intersection, as well as more advanced features such as Monte Carlo path tracing, importance sampling, and physically based shading models.
 
 ## Dependencies
 
